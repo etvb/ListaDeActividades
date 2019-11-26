@@ -18,9 +18,6 @@ function agregarActividad(e){
   //e.preventDefault();
   //3.-actividad almacena lo que se introduce en el textarea 
   let actividad = document.getElementById('tweet').value;
-  console.log(actividad);
-
-
   //4.- Crear el elemento html que mostrara la info de la variable actividad
   const li = document.createElement('li');
   li.innerHTML = actividad;
@@ -28,6 +25,16 @@ function agregarActividad(e){
   listaPendientes.appendChild(li);
   //6.- ya que la ctividad es la como lista borramos el contenido del textarea
   document.getElementById('tweet').value = '';
+
+  /*7.-Necesito un boton para eliminar los pendientes que he terminado
+  creo el elemento que sera un a
+  */
+ const botonBorrar = document.createElement('a');
+ botonBorrar.innerHTML = 'X'
+ botonBorrar.classList = 'borrar-tweet'
+ li.appendChild(botonBorrar);
+
+
 
   
   
