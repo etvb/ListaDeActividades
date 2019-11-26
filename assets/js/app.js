@@ -8,6 +8,10 @@ function eventListeners(){
 //1.- cuando el formulario es enviado se ejecuta la funcion agregarActividad
   document.querySelector('#formulario').addEventListener('submit', agregarActividad);
 
+//8.-Borrar los pendientes, aplicando delagation
+listaPendientes.addEventListener('click', borrarActividad);
+
+
 }
 
 
@@ -32,11 +36,14 @@ function agregarActividad(e){
  const botonBorrar = document.createElement('a');
  botonBorrar.innerHTML = 'X'
  botonBorrar.classList = 'borrar-tweet'
- li.appendChild(botonBorrar);
+ li.appendChild(botonBorrar);  
+}
 
-
-
-  
-  
-  
+//funcion para borrar la actividad
+function borrarActividad(e){
+  //9.-si el elemento que cliqueo tienen la clase borrar-tweet
+  //entonces se elimina el elemento padre que este caso es el li
+  if(e.target.className == 'borrar-tweet'){
+    e.target.parentElement.remove();
+  }
 }
